@@ -1,20 +1,27 @@
 var Greeter = React.createClass({
+  getDefaultProps: function() {
+    return {
+      name: 'React',
+      message: 'Arteezy is best NA'
+    };
+  },
   render: function(){
-    return React.createElement(
-      'h1',
-      null,
-      'Hello React!'
+    var name = this.props.name;
+    var message = this.props.message;
+
+    return(
+      <div>
+        <h1>Hello {name}!</h1>
+      <p>{message + '!!'}</p>
+      </div>
     )
-    // return(
-    //   <div>
-    //     <h1>Hello React!</h1>
-    //   <p>Test</p>
-    //   </div>
-    // )
   }
 });
 
+var playerName = 'Arteezy'
+var theMessage = 'secret message'
+
 ReactDOM.render(
-  <Greeter/>,
+  <Greeter name={playerName} message={theMessage}/>,
   document.getElementById('app')
 );
